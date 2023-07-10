@@ -26,6 +26,7 @@ Route::middleware('auth','verified')
 ->group(function () {
     Route::get('/', [AdminPageController::class, 'dashboard'])->name('dashboard');
     Route::resource('posts', PostController::class);
+    Route::resource('types', TypeController::class);
 });
 
 

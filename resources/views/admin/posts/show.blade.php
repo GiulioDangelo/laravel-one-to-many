@@ -5,5 +5,6 @@
     <h1>{{ $post->title }}</h1>
     <img src="{{ $post->url_image }}" alt="{{ $post->title }}">
     <p>{{ $post->content }}</p>
+    <p>{{ $post->type->name }}</p>
 
 @endsection

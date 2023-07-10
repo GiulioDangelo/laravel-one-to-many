@@ -64,6 +64,27 @@
             @enderror
         </div>
 
+        <div class="mb-3">
+            <label for="category" class="form-label">type</label>
+            <select
+                class="form-select @error('type_id') is-invalid @enderror"
+                id="type"
+                name="type_id"
+            >
+                @foreach ($types as $type)
+                    <option
+                        value="{{ $type->id }}"
+                        @if (old('type_id', $post->type->id) == $type->id) selected @endif
+                    >{{ $type->name }}</option>
+                @endforeach
+            </select>
+            @error('type_id')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+            @enderror
+        </div>
+
         <button class="btn btn-primary">Update</button>
     </form>
 
