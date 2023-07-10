@@ -2,7 +2,7 @@
 
 @section('contents')
 
-    <h1>Add new post</h1>
+    <h1>Add new Project</h1>
 
     {{-- @if ($errors->any())
         <div class="alert alert-danger">
@@ -14,7 +14,7 @@
         </div>
     @endif --}}
 
-    <form method="POST" action="{{ route('admin.posts.store') }}" novalidate>
+    <form method="POST" action="{{ route('admin.projects.store') }}" novalidate>
         @csrf
 
         <div class="mb-3">

@@ -2,15 +2,15 @@
 
 @section('contents')
 
-    <h1>Posts</h1>
+    <h1>Project</h1>
 
     @if (session('delete_success'))
-        @php $post = session('delete_success') @endphp
+        @php $project = session('delete_success') @endphp
         <div class="alert alert-danger">
-            Il post "{{ $post->title }}" è stato eliminato per sempre
+            Il project "{{ $project->title }}" è stato eliminato per sempre
             {{-- <form
-                action="{{ route("admin.posts.restore", ['post' => $post]) }}"
-                    method="post"
+                action="{{ route("admin.projects.restore", ['project' => $project]) }}"
+                    method="project"
                     class="d-inline-block"
                 >
                 @csrf
@@ -20,9 +20,9 @@
     @endif
 
     {{-- @if (session('restore_success'))
-        @php $post = session('restore_success') @endphp
+        @php $project = session('restore_success') @endphp
         <div class="alert alert-success">
-            La post "{{ $post->title }}" è stata ripristinata
+            La project "{{ $project->title }}" è stata ripristinata
         </div>
     @endif --}}
 
@@ -36,15 +36,15 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($posts as $post)
+            @foreach ($projects as $project)
                 <tr>
-                    <th scope="row">{{ $post->id }}</th>
-                    <td>{{ $post->title }}</td>
-                    <td>{{ $post->url_image }}</td>
+                    <th scope="row">{{ $project->id }}</th>
+                    <td>{{ $project->title }}</td>
+                    <td>{{ $project->url_image }}</td>
                     <td>
-                        <a class="btn btn-primary" href="{{ route('admin.posts.show', ['post' => $post]) }}">View</a>
-                        <a class="btn btn-warning" href="{{ route('admin.posts.edit', ['post' => $post]) }}">Edit</a>
-                        <button type="button" class="btn btn-danger js-delete" data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="{{ $post->id }}">
+                        <a class="btn btn-primary" href="{{ route('admin.projects.show', ['project' => $project]) }}">View</a>
+                        <a class="btn btn-warning" href="{{ route('admin.projects.edit', ['project' => $project]) }}">Edit</a>
+                        <button type="button" class="btn btn-danger js-delete" data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="{{ $project->id }}">
                             Delete
                         </button>
                     </td>
@@ -67,8 +67,8 @@
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
                     <form
                         action=""
-                        data-template="{{ route('admin.posts.destroy', ['post' => '*****']) }}"
-                        method="post"
+                        data-template="{{ route('admin.projects.destroy', ['project' => '*****']) }}"
+                        method="project"
                         class="d-inline-block"
                         id="confirm-delete"
                     >
@@ -81,6 +81,6 @@
         </div>
     </div>
 
-    {{ $posts->links() }}
+    {{ $projects->links() }}
 
 @endsection

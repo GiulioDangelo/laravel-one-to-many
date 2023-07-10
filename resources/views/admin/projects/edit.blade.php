@@ -2,7 +2,7 @@
 
 @section('contents')
 
-    <h1>Edit post</h1>
+    <h1>Edit project</h1>
 
     {{-- @if ($errors->any())
         <div class="alert alert-danger">
@@ -14,7 +14,7 @@
         </div>
     @endif --}}
 
-    <form method="POST" action="{{ route('admin.posts.update', ['post' => $post]) }}" novalidate>
+    <form method="POST" action="{{ route('admin.projects.update', ['project' => $project]) }}" novalidate>
         @csrf
         @method('put')
 
@@ -25,7 +25,7 @@
                 class="form-control @error('title') is-invalid @enderror"
                 id="title"
                 name="title"
-                value="{{ old('title', $post->title) }}"
+                value="{{ old('title', $project->title) }}"
             >
             @error('title')
                 <div class="invalid-feedback">
@@ -41,7 +41,7 @@
                 class="form-control @error('url_image') is-invalid @enderror"
                 id="url_image"
                 name="url_image"
-                value="{{ old('url_image', $post->url_image) }}"
+                value="{{ old('url_image', $project->url_image) }}"
             >
             @error('url_image')
                 <div class="invalid-feedback">
@@ -56,7 +56,7 @@
                 class="form-control @error('content') is-invalid @enderror"
                 id="content"
                 rows="10"
-                name="content">{{ old('content', $post->content) }}</textarea>
+                name="content">{{ old('content', $project->content) }}</textarea>
             @error('content')
                 <div class="invalid-feedback">
                     {{ $message }}
@@ -74,7 +74,7 @@
                 @foreach ($types as $type)
                     <option
                         value="{{ $type->id }}"
-                        @if (old('type_id', $post->type->id) == $type->id) selected @endif
+                        @if (old('type_id', $project->type->id) == $type->id) selected @endif
                     >{{ $type->name }}</option>
                 @endforeach
             </select>

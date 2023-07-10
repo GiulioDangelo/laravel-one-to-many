@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('posts', function (Blueprint $table) {
+        Schema::table('project', function (Blueprint $table) {
             // creare la colonna della chiave esterna
             $table->unsignedBigInteger('type_id');
 
@@ -29,9 +29,9 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('posts', function (Blueprint $table) {
+        Schema::table('project', function (Blueprint $table) {
             // eliminare la chiave esterna
-            $table->dropForeign('posts_types_id_foreign');
+            $table->dropForeign('projects_types_id_foreign');
 
             // eliminiamo  la colonna 
             $table->dropColumn('type_id');
